@@ -4,7 +4,7 @@ const router = Router()
 
 router.get('/', GetSeguimiento)
 router.post('/', PostSeguimiento)
-router.put('/', PutSeguimiento)
-router.delete('/', DeleteSeguimiento)
+router.put('/:idEnvio', PutSeguimiento)
+router.delete('/:idEnvio', DeleteSeguimiento)
 
 module.exports = router

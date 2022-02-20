@@ -1,6 +1,8 @@
+const {v4: uuidv4} = require('uuid');
+
 class Paquetes {
     constructor(id, descripcion, peso, volumen, clasificacion){
-        this.id = id
+        this.id = uuidv4
         this.descripcion = descripcion
         this.peso = peso
         this.volumen = volumen
@@ -22,8 +24,8 @@ class ListadoPaquetes {
     }
 
     cargarTareasFromArray(datos = []) {
-        datos.forEach(envio => {
-            this._listado[envio.id] = envio;
+        datos.forEach(paquete => {
+            this._listado[paquete.id] = envio;
         });
     }
 

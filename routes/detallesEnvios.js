@@ -4,7 +4,7 @@ const router = Router()
 
 router.get('/', GetDetallesEnvios)
 router.post('/', PostDetallesEnvios)
-router.put('/', PutDetallesEnvios)
-router.delete('/', DeleteDetallesEnvios)
+router.put('/:id', PutDetallesEnvios)
+router.delete('/:id', DeleteDetallesEnvios)
 
 module.exports = router

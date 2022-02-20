@@ -1,3 +1,5 @@
+// const {v4: uuidv4} = require('uuid');
+
 class Seguimientos {
     constructor(idEnvio, fecha, hora, lugar){
         this.idEnvio = idEnvio
@@ -19,4 +21,23 @@ class ListadoSeguimientos {
         });
         return listado;
     }
+
+    cargarTareasFromArray(datos = []) {
+        datos.forEach(seguimiento => {
+            this._listado[seguimiento.id] = seguimiento;
+        });
+    }
+
+    crearSeguimiento(datos) {
+        const seguimiento = new Seguimientos(
+            datos.idEnvio,
+            datos.fecha,
+            datos.hora,
+            datos.lugar);
+        this._listado[seguimiento.id] = seguimiento;
+    }
+}
+
+module.exports = {
+    ListadoSeguimientos
 }

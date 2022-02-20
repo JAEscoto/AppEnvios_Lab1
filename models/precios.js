@@ -1,6 +1,8 @@
+const {v4: uuidv4} = require('uuid')
+
 class Precios {
     constructor(id, cantidad, valor, estado){
-        this.id = id
+        this.id = uuidv4()
         this.cantidad = cantidad
         this.valor = valor
         this.estado = estado
@@ -19,4 +21,24 @@ class ListadoPrecios{
         });
         return listado;
     }
+
+    cargarTareasFromArray(datos = []) {
+        datos.forEach(precio => {
+            this._listado[precio.id] = envio;
+        });
+    }
+
+    crearPrecio(datos) {
+        const precio = new Precios(
+            datos.id,
+            datos.cantidad,
+            datos.valor,
+            datos.estado
+            );
+        this._listado[precio.id] = precio;
+    }
+}
+
+module.exports = {
+    ListadoPrecios
 }
