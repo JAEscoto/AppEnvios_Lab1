@@ -1,9 +1,14 @@
 const express = require('express');
-const { reset } = require('nodemon');
+//const { reset } = require('nodemon');
+const cors = require('cors');
 
 class Server{
     constructor(){
         this.app = express()
+        //this.routes();
+        this.app.use(cors());
+        this.app.use(express.json());
+        this.app.use(express.static('public'));
         this.routes();
     }
 

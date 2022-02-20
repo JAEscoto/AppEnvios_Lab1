@@ -1,6 +1,8 @@
+const {v4: uuidv4} = require('uuid')
+
 class Envios {
     constructor(codigo, fecha, tracking, origen, destino, emisor, destinatario) {
-        this.id = codigo
+        this.id = uuidv4()
         this.codigo = codigo
         this.fecha = fecha
         this.tracking = tracking
@@ -23,4 +25,28 @@ class ListadoEnvios {
         });
         return listado;
     }
+
+    cargarTareasFromArray( datos = []){
+        datos.forEach(envio => {
+            this._listado[envio.id] = envio;
+        });
+    }
+
+    crearEnvio(datos){
+        /*const envio = new Tarea(datos);
+        this._listado[envio.id] = envio;*/
+        const envio = new Envios(
+            datos.codigo,
+            datos.fecha,
+            datos.tracking,
+            datos.origen,
+            datos.destino,
+            datos.emisor,
+            datos.destinatario);
+        this._listado[envio.id] = envio;
+    }
+}
+
+module.exports = {
+    ListadoEnvios
 }
