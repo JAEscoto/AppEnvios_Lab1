@@ -20,4 +20,25 @@ class ListadoPaquetes {
         });
         return listado;
     }
+
+    cargarTareasFromArray(datos = []) {
+        datos.forEach(envio => {
+            this._listado[envio.id] = envio;
+        });
+    }
+
+    crearPaquetes(datos){
+        const paquete = new Paquetes(
+            datos.id,
+            datos.descripcion,
+            datos.peso,
+            datos.volumen,
+            datos.clasificacion
+        );
+        this._listado[paquete.id] = paquete;
+    }
+}
+
+module.exports ={
+    ListadoPaquetes
 }
